@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<title>Shop &amp; Cook · Nov 8–14, 2026</title>
+<meta name="theme-color" content="#3f5636"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-title" content="Shop &amp; Cook"/><meta name="robots" content="noindex,nofollow"/>
+<style>
+:root{--bg:#f7f2e8;--card:#fffdf8;--ink:#2e3328;--muted:#686c5c;--line:#e5ddcd;
+--sage:#6e8b5e;--sage-d:#4a6640;--sage-l:#e6eedd;--blue:#5b7a99;--blue-d:#3e5e7d;--blue-l:#e3ebf3;
+--terra:#b0644a;--terra-d:#8e4a33;--terra-l:#f6e4dc;--sand-d:#735d3a;--sand-l:#f1e9da}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:0 16px 40px}
+header{padding:18px 0 6px}
+.flag{display:inline-block;background:var(--sand-l);color:var(--sand-d);border:1px solid #e2d5bd;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+h1{font-size:27px;line-height:1.2;margin:10px 0 4px;color:#36432a}
+.lede{color:var(--muted);margin:0 0 14px;font-size:15px}
+/* overview */
+.overview{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.meal{border-radius:14px;padding:12px 14px;border:1px solid var(--line);background:var(--card);text-align:left;font:inherit;color:inherit;cursor:pointer;min-height:44px}
+.meal .tag{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.meal .nm{display:block;font-weight:650;line-height:1.3;margin:2px 0 4px}
+.meal .info{font-size:13px;color:var(--muted)}
+.meal.a{border-left:5px solid var(--terra)}.meal.a .tag{color:var(--terra-d)}
+.meal.b{border-left:5px solid var(--blue)}.meal.b .tag{color:var(--blue-d)}
+/* sticky nav */
+nav.tabs{position:sticky;top:0;z-index:5;background:rgba(247,242,232,.94);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:8px 0;margin:0 -16px 12px;padding-left:16px;padding-right:16px;border-bottom:1px solid var(--line)}
+.seg{display:flex;background:#ece5d6;border-radius:12px;padding:4px;gap:4px}
+.seg button{flex:1;min-height:44px;border:0;border-radius:9px;background:transparent;font:inherit;font-weight:650;color:var(--muted);cursor:pointer}
+.seg button[aria-selected=true]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(60,50,30,.15)}
+.seg button .sub{font-weight:500;font-size:13px;margin-left:6px;color:var(--muted)}
+/* generic */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 1px 3px rgba(60,55,30,.05)}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.btn{font:inherit;font-size:15px;font-weight:600;min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--sage-d);background:var(--sage-d);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--sage-d)}
+.btn:disabled{opacity:.4;cursor:default}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{min-height:44px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font:inherit;font-size:14px;font-weight:600;color:var(--muted);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--sage-l);border-color:#c4d3b5;color:var(--sage-d)}
+.note{font-size:13px;color:var(--muted)}
+/* shop */
+.progress{display:flex;align-items:center;gap:12px;font-weight:650;margin-bottom:10px}
+.bar{flex:1;height:8px;background:var(--sage-l);border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--sage);transition:width .2s}
+.assumed{background:var(--sand-l);color:var(--sand-d);border-radius:12px;padding:10px 12px;font-size:14px;margin-bottom:14px}
+.aisle{margin-top:14px}
+.aisle h3{display:flex;align-items:center;justify-content:space-between;margin:0;padding:7px 12px;border-radius:9px;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.aisle h3 small{letter-spacing:0;text-transform:none;font-weight:600}
+.produce h3{background:var(--sage-l);color:var(--sage-d)}.meat h3{background:var(--terra-l);color:var(--terra-d)}
+.dairy h3{background:var(--blue-l);color:var(--blue-d)}.pantry h3{background:var(--sand-l);color:var(--sand-d)}
+ul.items{list-style:none;margin:0;padding:0}
+ul.items label{display:grid;grid-template-columns:26px 1fr auto;gap:4px 12px;align-items:start;padding:11px 4px;border-bottom:1px solid var(--line);cursor:pointer;min-height:48px}
+ul.items li:last-child label{border-bottom:0}
+input[type=checkbox]{width:24px;height:24px;margin:1px 0 0;accent-color:var(--sage-d)}
+.iname{font-weight:600;line-height:1.35}
+.buy{font-weight:700;white-space:nowrap;text-align:right;font-size:15px}
+.use{grid-column:2/4;font-size:13px;color:var(--muted);line-height:1.4}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 1px 0;vertical-align:middle}
+.dot.a{background:var(--terra)}.dot.b{background:var(--blue)}
+li.done .iname,li.done .buy{text-decoration:line-through;color:var(--muted)}
+li.dim{opacity:.35}
+@media (max-width:360px){ul.items label{grid-template-columns:26px 1fr}.buy{grid-column:2;text-align:left}}
+/* cook */
+.ing{list-style:none;margin:0;padding:0;columns:2;column-gap:20px}
+.ing li{break-inside:avoid;padding:6px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.ing b{font-weight:700}
+@media (max-width:480px){.ing{columns:1}}
+h2{font-size:21px;margin:0 0 4px;line-height:1.25}
+h4{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+.recipe-head{border-top:5px solid var(--terra)}.recipe-head.b{border-top-color:var(--blue)}
+.meta{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 2px}.meta span{font-size:13px;border-radius:999px;padding:3px 10px;background:var(--sage-l);color:var(--sage-d)}
+ol.steps{list-style:none;counter-reset:s;margin:0;padding:0}
+ol.steps li{counter-increment:s;position:relative;padding-left:46px;margin-bottom:20px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent,var(--terra));color:#fff;font-weight:700;display:grid;place-items:center;font-size:15px}
+ol.steps b.act{display:block;font-size:18px}
+.safety{display:block;margin-top:6px;border-left:4px solid var(--terra);background:var(--terra-l);padding:8px 10px;border-radius:6px;font-size:15px}
+/* focus mode */
+.focus{position:fixed;inset:0;z-index:20;background:var(--bg);display:none;flex-direction:column;padding:max(16px,env(safe-area-inset-top)) 18px max(16px,env(safe-area-inset-bottom))}
+.focus.on{display:flex}
+.focus .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.focus .count{font-weight:700;color:var(--muted)}
+.fbar{height:6px;background:var(--line);border-radius:6px;margin:12px 0 20px;overflow:hidden}.fbar i{display:block;height:100%;background:var(--accent,var(--terra));width:0}
+.fbody{flex:1;overflow:auto;max-width:640px;width:100%;margin:0 auto}
+.fbody .act{font-size:28px;line-height:1.2;font-weight:750;margin:0 0 12px}
+.fbody .txt{font-size:21px;line-height:1.5}
+.need{margin-top:20px}.need span{display:inline-block;margin:0 6px 6px 0;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:15px}
+.fnav{display:flex;gap:10px;max-width:640px;width:100%;margin:12px auto 0}.fnav .btn{flex:1;min-height:56px;font-size:17px}
+[hidden]{display:none!important}
+.printonly{display:none}
+@media print{body{background:#fff;font-size:11.5pt}nav.tabs,.overview,.noprint,.focus,.btn,.chips{display:none!important}
+#view-shop,.printonly{display:block!important}#view-cook{display:none!important}.card{box-shadow:none;break-inside:avoid-page}li.dim{opacity:1}.printonly .card{break-before:page}}
+
+/* --- reference-inspired polish --- */
+header{margin:0 -16px 0;padding:18px 16px 18px;background:#3f5636;color:#f7f2e8;border-radius:0 0 22px 22px}
+header h1{color:#fbf8f1}header .lede{color:#dbe3cf}
+header .flag{background:rgba(255,255,255,.14);color:#f3eedf;border-color:rgba(255,255,255,.25)}
+.overview{margin:14px 0 0}.meal{border:0;box-shadow:0 2px 8px rgba(20,30,15,.18)}
+nav.tabs{margin-top:0}
+nav.tabs .seg{background:transparent;padding:0;gap:0;border-bottom:1px solid var(--line)}
+nav.tabs .seg button{border-radius:0;border-bottom:3px solid transparent;margin-bottom:-1px}
+nav.tabs .seg button[aria-selected=true]{background:transparent;box-shadow:none;color:var(--sage-d);border-bottom-color:var(--sage-d)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin:14px 0 4px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts div{padding:10px 6px;text-align:center}.facts div+div{border-left:1px solid var(--line)}
+.facts b{display:block;font-size:16px;line-height:1.25}.facts span{font-size:12.5px;color:var(--muted)}
+.ing li{border-bottom:1px solid var(--line)}
+ol.steps li{color:#4a4e42;line-height:1.65}ol.steps b.act{color:var(--ink);margin-bottom:2px}
+.cookbar{position:static;margin:6px -16px -16px;padding:14px 16px;background:var(--card);border-top:1px solid var(--line);border-radius:0 0 16px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cookbar .note{font-size:14px}.cookbar .btn{min-width:150px}
+@media print{header{background:none;color:var(--ink)}header h1{color:var(--ink)}.cookbar{display:none}}
+
+/* locked: cleaner shop rows */
+ul.items label{align-items:center;padding:13px 4px;gap:2px 14px}
+.iname{font-size:17px}.buy{font-size:16px;color:var(--ink);background:var(--bg);border-radius:8px;padding:3px 10px}
+.use{grid-column:2/4;font-size:13px;color:var(--muted)}
+.aisle{margin-top:18px}.aisle h3{margin-bottom:2px}
+@media (max-width:360px){.buy{justify-self:start;margin-top:4px}}
+
+/* QA fixes */
+@media (max-width:440px){.meal .tag{letter-spacing:.03em;font-size:11px}}
+.unv{display:inline-block;font-style:normal;font-size:12px;font-weight:600;color:var(--sand-d);background:var(--sand-l);border-radius:6px;padding:0 6px;margin-left:4px;white-space:nowrap}
+.meal.a{background:#fbefe9}.meal.b{background:#eaf1f7}
+.meal{color:var(--ink)}.meal:not(.a):not(.b){background:var(--card)}.meal .nm{color:#2a2f24}.meal .info{color:#5f6353}
+
+/* static-first */
+html:not(.js) .jsonly{display:none!important}
+html:not(.js) .printonly{display:block}
+html.js .allrecipes{display:none}
+.allrecipes-h{margin:22px 0 10px}
+a.meal{display:block;text-decoration:none}
+@media print{.allrecipes{display:block!important}.allrecipes-h{display:none}}
+</style><style>.allrecipes{display:block!important}</style><style>
+/* repair: responsive rows */
+ul.items label{grid-template-columns:26px minmax(0,1fr) auto}
+.iname{min-width:0;overflow-wrap:anywhere}
+.buy{white-space:normal;overflow-wrap:anywhere;min-width:0;max-width:46vw;text-align:right;line-height:1.3}
+.use{min-width:0;overflow-wrap:anywhere}
+@media (max-width:440px){ul.items label{grid-template-columns:26px minmax(0,1fr);gap:4px 12px;padding:12px 2px}.buy{grid-column:2;justify-self:start;text-align:left;max-width:100%;margin-top:2px}}
+@media (min-width:760px){.wrap{max-width:880px;padding:0 28px 48px}.overview{gap:14px}}
+@media (min-width:1000px){.wrap{max-width:960px}}
+/* repair: enhanced controls (created by script only) */
+.ex-nav{position:sticky;top:0;z-index:5;background:rgba(247,242,232,.95);padding:8px 0;margin:0 0 12px;border-bottom:1px solid var(--line)}
+.ex-seg{display:flex;gap:6px}
+.ex-seg button,.ex-btn{flex:1;min-height:48px;font:inherit;font-weight:650;font-size:16px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer;padding:0 14px}
+.ex-seg button[aria-selected=true]{background:var(--sage-d,#4a6640);border-color:var(--sage-d,#4a6640);color:#fff}
+.ex-btn.primary{background:var(--sage-d,#4a6640);color:#fff;border-color:var(--sage-d,#4a6640)}
+.ex-btn:disabled{opacity:.4}
+.ex-cookbar{display:flex;margin:14px 0 4px}
+.ex-dsel{margin-bottom:12px}
+html.enh.v-shop .allrecipes{display:none!important}
+html.enh.v-cook #view-shop{display:none!important}
+html.enh.v-cook .allrecipes-h{display:none}
+html.enh.v-cook .recipe-head{display:none}
+html.enh.v-cook .recipe-head.sel{display:block}
+.ex-focus{position:fixed;inset:0;z-index:50;background:var(--bg,#f7f2e8);display:none;flex-direction:column;padding:max(16px,env(safe-area-inset-top)) 20px max(16px,env(safe-area-inset-bottom))}
+.ex-focus.on{display:flex}
+.ex-top{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:820px;width:100%;margin:0 auto}
+.ex-count{font-weight:700;color:var(--muted)}
+.ex-bar{height:6px;background:var(--line);border-radius:6px;margin:12px auto 18px;overflow:hidden;max-width:820px;width:100%}.ex-bar i{display:block;height:100%;background:var(--terra,#b0644a);width:0}
+.ex-body{flex:1;overflow:auto;max-width:820px;width:100%;margin:0 auto}
+.ex-act{font-size:clamp(24px,4vw,34px);line-height:1.2;font-weight:750;margin:0 0 12px}
+.ex-txt{font-size:clamp(19px,2.6vw,24px);line-height:1.5}
+.ex-need{margin-top:20px}.ex-need span{display:inline-block;margin:0 6px 6px 0;padding:8px 12px;border-radius:999px;background:var(--card,#fff);border:1px solid var(--line);font-size:16px}
+.ex-fnav{display:flex;gap:12px;max-width:820px;width:100%;margin:12px auto 0}.ex-fnav .ex-btn{min-height:58px;font-size:18px}
+@media print{.ex-nav,.ex-focus,.ex-cookbar,.ex-dsel{display:none!important}html.enh .allrecipes,html.enh #view-shop,html.enh .recipe-head{display:block!important}}
+</style><style>
+/* refined spacing (video principles) */
+.wrap{padding:0 20px 48px}
+header{margin:0 -20px;padding:20px 20px 24px}
+.card{padding:16px;margin-bottom:32px}
+main>section,main>details{margin-bottom:32px}
+.overview{gap:12px}
+.lede{margin-bottom:16px}
+.assumed{margin-bottom:24px;padding:12px 16px}
+.aisle{margin-top:24px}.aisle:first-child{margin-top:0}
+ul.items label{min-height:60px;gap:4px 12px;padding:12px 4px;align-items:center}
+@media (max-width:440px){ul.items label{padding:12px 2px}}
+.rmeta{color:var(--muted);font-size:15px;margin:4px 0 0}
+.recipe-head h4{margin:24px 0 8px}
+.recipe-head .steps .need{display:none}
+ol.steps li{margin-bottom:0;padding-top:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+ol.steps li:last-child{border-bottom:0}
+ol.steps li::before{top:14px}
+details.notes summary{cursor:pointer;font-weight:700;font-size:17px;min-height:44px;display:flex;align-items:center}
+details.notes p,details.notes li{font-size:14px;color:var(--muted);line-height:1.55}
+@media (min-width:760px){.wrap{max-width:880px;padding:0 32px 56px}header{margin:0 -32px;padding:24px 32px 28px}.card{padding:24px}}
+@media print{details.notes{display:block}details.notes>*{display:block!important}}
+</style><style>.total{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:12px 0 20px}.total strong{font-size:22px;color:var(--ink)}.total .caveat{font-size:13px;color:var(--muted);flex:1 1 220px}</style><style>a.meal{cursor:pointer}a.meal:focus-visible{outline:3px solid var(--sage-d,#4a6640);outline-offset:2px}a.meal.current{box-shadow:0 0 0 3px var(--sage-d,#4a6640),0 2px 8px rgba(20,30,15,.18)}</style></head><body>
+<div class="wrap">
+<header>
+<span class="flag">Week of Nov 8</span>
+<h1>Shop &amp; Cook</h1>
+<p class="lede">Two dinners, four plates each. One combined list.</p>
+<div class="overview" id="overview"><a class="meal a" href="#recipe-a"><span class="tag">Dinner A · Sun / Tue</span><span class="nm">Cajun Sausage and Rice Skillet</span></a><a class="meal b" href="#recipe-b"><span class="tag">Dinner B · Mon / Wed</span><span class="nm">Ground Beef Bowl</span></a></div>
+</header>
+<main>
+<section aria-labelledby="tab-shop" id="view-shop" role="tabpanel">
+<div class="card">
+<div class="progress"><span id="count">0 of 10 items</span><div class="bar"><i id="fill"></i></div></div><p class="total"><strong>Estimated total $46.79</strong> <span class="caveat">Before tax; produce weights estimated; online and in-store prices may vary. No Prime discount assumed. 7 prices rechecked Nov 9; 3 marked “Nov 8 price” are unverified today.</span></p>
+<div class="assumed"><strong>Assumed on hand (not on list):</strong> <span id="assumed">cooking/olive oil, home jasmine rice, smoked paprika, dried oregano, dried thyme, garlic powder, cayenne, black pepper, salt, tomato paste, ground cinnamon, chicken bouillon, green onions, hot honey.</span></div>
+<div id="aisles"><div class="aisle produce"><h3>Produce<small>3</small></h3><ul class="items"><li><label><input data-id="pepper" type="checkbox"/><span class="iname">Organic green bell pepper</span><span class="buy">1 pepper (~0.5 lb) · $1.75</span></label></li><li><label><input data-id="sweetpotato" type="checkbox"/><span class="iname">Organic sweet potatoes</span><span class="buy">2 large (~1.55 lb / 700 g) · $4.63</span></label></li><li><label><input data-id="avocado" type="checkbox"/><span class="iname">Organic Hass avocado, large</span><span class="buy">1 large · $2.99</span></label></li></ul></div><div class="aisle meat"><h3>Meat<small>2</small></h3><ul class="items"><li><label><input data-id="sausage" type="checkbox"/><span class="iname">North Country Andouille pork sausage</span><span class="buy">2 × 12 oz packs · $13.98 <em class="unv">Nov 8 price</em></span></label></li><li><label><input data-id="beef" type="checkbox"/><span class="iname">365 90% lean ground beef (not organic)</span><span class="buy">1 × 16 oz pack · $7.99</span></label></li></ul></div><div class="aisle dairy"><h3>Dairy<small>1</small></h3><ul class="items"><li><label><input data-id="cottage" type="checkbox"/><span class="iname">Organic low-fat cottage cheese</span><span class="buy">16 oz / about 2 cups · $4.49</span></label></li></ul></div><div class="aisle pantry"><h3>Pantry (buy)<small>4</small></h3><ul class="items"><li><label><input data-id="firetomato" type="checkbox"/><span class="iname">365 Fire-roasted diced tomatoes</span><span class="buy">1 × 14.5 oz can · $1.99</span></label></li><li><label><input data-id="taco" type="checkbox"/><span class="iname">Siete mild taco seasoning</span><span class="buy">1 × 1.3 oz packet · $2.99</span></label></li><li><label><input data-id="onionpowder" type="checkbox"/><span class="iname">365 onion powder</span><span class="buy">1 × 2.43 oz jar · $2.99 <em class="unv">Nov 8 price</em></span></label></li><li><label><input data-id="crushedredpepper" type="checkbox"/><span class="iname">365 crushed red pepper</span><span class="buy">1 × 1.31 oz jar · $2.99 <em class="unv">Nov 8 price</em></span></label></li></ul></div></div>
+<div class="row noprint" style="margin-top:14px;justify-content:space-between">
+<span class="note">Checks save on this device only. No syncing between devices.</span><noscript><span class="note" style="display:block;margin-top:6px">Tip: check-off saving and cook mode need the web link opened in Safari or Chrome (not a Files or Mail preview). The full list and both recipes are below either way.</span></noscript>
+<span class="row"></span>
+</div>
+</div>
+</section>
+<section aria-label="Recipes" class="allrecipes"><h2 class="allrecipes-h">Recipes</h2><div id="printRecipes"><div class="card recipe-head a" id="recipe-a" style="--accent:var(--terra)"><span class="flag" style="font-size:12px">Dinner A · Sun Nov 8 · Tue leftovers</span><h2 style="margin-top:8px">Cajun Sausage and Rice Skillet</h2><p class="rmeta">45 min · one skillet · <a href="https://www.budgetbytes.com/cajun-sausage-and-rice-skillet/" rel="noopener noreferrer" target="_blank">Budget Bytes</a></p><h4>Ingredients</h4><ul class="ing"><li><b>1 medium</b> organic green bell pepper</li><li><b>14 oz</b> North Country andouille sausage (of 24 oz bought; freeze the other 10 oz)</li><li><b>1 can (14.5 oz)</b> 365 fire-roasted diced tomatoes, with juices</li><li><b>1.5 cups</b> chicken broth from on-hand bouillon</li><li><b>2</b> green onions (on hand)</li><li><b>1 Tbsp</b> cooking oil / olive oil</li><li><b>1 cup dry (~185 g)</b> jasmine rice (on hand)</li><li><b>1 tsp</b> smoked paprika</li><li><b>1/2 tsp</b> dried oregano</li><li><b>1/2 tsp</b> dried thyme</li><li><b>1/4 tsp</b> garlic powder</li><li><b>1/4 tsp</b> onion powder</li><li><b>1/8 tsp</b> cayenne</li><li><b>1/8 tsp</b> black pepper</li></ul><h4>Steps</h4><ol class="steps"><li><b class="act">Brown the sausage.</b>Slice <strong>14 oz andouille</strong> 1/4–1/2 inch thick. Brown in <strong>1 Tbsp oil</strong> in a deep skillet over medium heat.<div class="need"><span>14 oz andouille sausage</span><span>1 Tbsp oil</span></div></li><li><b class="act">Add the pepper.</b>Dice <strong>1 medium green bell pepper</strong> while the sausage cooks. Add and sauté <strong>1 min</strong>.<div class="need"><span>1 green bell pepper</span></div></li><li><b class="act">Toast the spices.</b>Add <strong>1 tsp smoked paprika</strong>, <strong>1/2 tsp oregano</strong>, <strong>1/2 tsp thyme</strong>, <strong>1/4 tsp garlic powder</strong>, <strong>1/4 tsp onion powder</strong>, <strong>1/8 tsp cayenne</strong> and <strong>1/8 tsp black pepper</strong>. Sauté <strong>1 min</strong> to toast.<div class="need"><span>1 tsp smoked paprika</span><span>1/2 tsp dried oregano</span><span>1/2 tsp dried thyme</span><span>1/4 tsp garlic powder</span><span>1/4 tsp onion powder</span><span>1/8 tsp cayenne</span><span>1/8 tsp black pepper</span></div></li><li><b class="act">Add tomatoes, rice and broth.</b>Add the whole <strong>14.5 oz fire-roasted tomato can</strong> with juices, <strong>1 cup dry jasmine rice</strong> and <strong>1.5 cups chicken broth</strong> (dissolve on-hand chicken bouillon in water per package directions). Stir and loosen browned bits.<div class="need"><span>1 can fire-roasted tomatoes</span><span>1 cup dry jasmine rice</span><span>1.5 cups chicken broth (bouillon)</span></div></li><li><b class="act">Simmer and rest.</b>Cover and bring to a full boil over medium-high. Reduce to low; simmer <strong>20 min</strong>. Remove from heat and rest, covered, <strong>5 min</strong>.<div class="need"><span>No additional ingredients</span></div></li><li><b class="act">Finish.</b>Fold gently to redistribute; top with <strong>2 sliced green onions</strong> (on hand).<div class="need"><span>2 green onions</span></div></li><li><b class="act">Serve and store.</b>Serve two plates. Cool the other two promptly in shallow containers; refrigerate within 2 hours (rice within 1–2 hours). Reheat Tue Nov 10 to <strong>165°F</strong>.<div class="need"><span>No additional ingredients</span></div></li></ol></div><div class="card recipe-head b" id="recipe-b" style="--accent:var(--blue)"><span class="flag" style="font-size:12px">Dinner B · Mon Nov 9 · Wed leftovers</span><h2 style="margin-top:8px">Ground Beef Bowl</h2><p class="rmeta">30 min · <a href="https://healthyfitnessmeals.com/ground-beef-bowl/" rel="noopener noreferrer" target="_blank">Healthy Fitness Meals — Rena Awada</a></p><h4>Ingredients</h4><ul class="ing"><li><b>16 oz</b> 365 90% lean ground beef (1 pack)</li><li><b>2 large (~700 g)</b> organic sweet potatoes, peeled, ¼-inch cubes</li><li><b>1 large</b> organic Hass avocado</li><li><b>2 cups (16 oz tub)</b> organic low-fat cottage cheese</li><li><b>1 packet (1.3 oz)</b> Siete mild taco seasoning</li><li><b>2 Tbsp</b> olive oil, divided (on hand)</li><li><b>1 Tbsp</b> tomato paste (on hand)</li><li><b>3 Tbsp</b> hot honey, divided (on hand)</li><li><b>1 tsp</b> ground cinnamon (on hand)</li><li><b>To taste</b> salt, pepper, crushed red pepper (optional)</li></ul><h4>Steps</h4><ol class="steps"><li><b class="act">Heat the oven.</b>Heat to <strong>350°F</strong>; line a sheet pan with parchment.<div class="need"><span>Sheet pan + parchment</span></div></li><li><b class="act">Season the sweet potatoes.</b>Peel and cut <strong>2 large sweet potatoes (~700 g)</strong> into 1/4-inch cubes. Toss with <strong>1 Tbsp olive oil</strong>, <strong>1 tsp cinnamon</strong>, salt and pepper.<div class="need"><span>2 large sweet potatoes (~700 g)</span><span>1 Tbsp olive oil</span><span>1 tsp cinnamon</span><span>salt and pepper</span></div></li><li><b class="act">Roast.</b>Roast the <strong>700 g seasoned sweet potatoes</strong> for <strong>18–20 min</strong>, until cooked through and crisp at the edges.<div class="need"><span>Seasoned sweet potatoes</span></div></li><li><b class="act">Brown and season the beef.</b>Meanwhile heat the remaining <strong>1 Tbsp olive oil</strong>. Brown <strong>16 oz 90/10 beef</strong>, breaking it up (source suggests 2–3 min). Add <strong>1 packet taco seasoning (1.3 oz)</strong> and <strong>1 Tbsp tomato paste</strong>; cook <strong>2 min</strong> more.<div class="need"><span>1 Tbsp olive oil</span><span>16 oz ground beef</span><span>1 packet taco seasoning</span><span>1 Tbsp tomato paste</span></div></li><li><b class="act">Add hot honey.</b>Stir <strong>1 Tbsp hot honey</strong> into the <strong>16 oz seasoned beef</strong>. Add a splash of water if dry. Continue until ground beef reaches <strong>160°F</strong>; time alone is not a safety check.<div class="need"><span>1 Tbsp hot honey</span></div></li><li><b class="act">Assemble four bowls.</b>Across four plates divide <strong>700 g roasted potatoes</strong>, <strong>16 oz cooked-from-raw beef</strong>, <strong>1 large avocado</strong> and <strong>2 cups cottage cheese</strong> (1/2 cup each). Drizzle remaining <strong>2 Tbsp hot honey</strong> (1/2 Tbsp each). Optional chili flakes to taste.<div class="need"><span>Roasted sweet potatoes</span><span>Cooked beef</span><span>1 avocado, sliced</span><span>2 cups cottage cheese</span><span>2 Tbsp hot honey</span></div></li><li><b class="act">Serve and save Wednesday’s plates.</b>Mon Nov 9: serve two bowls. Chill remaining two portions of beef/potatoes within <strong>2 hr</strong>; store <strong>1/2 avocado</strong> and <strong>1 cup cottage cheese</strong> separately. Wed Nov 11: reheat beef/potatoes to <strong>165°F</strong>, then add cold toppings.<div class="need"><span>No additional ingredients</span></div></li></ol></div></div></section>
+<details class="card notes"><summary>Notes &amp; sources</summary><p><strong>Cajun Sausage and Rice Skillet:</strong> 4.85★ / 265 ratings · ~544 kcal/plate (est.) · P 18g / C 47g / F 30g est.</p><p><strong>Ground Beef Bowl:</strong> Adapted bowl nutrition not recalculated for 90/10 beef; source figures are not for these exact ingredients.</p><p>Green onions, hot honey and chicken bouillon are on hand. Chicken bouillon replaces the vegetable broth: dissolve per package directions to make 1.5 cups. Balsamic is removed. Freeze 10 oz unused sausage. No fish sauce.</p><h4>Prices · Whole Foods Wade Ave (store 10016), regular non-Prime catalog prices</h4><p>Rechecked live Mon Nov 9, 7:47 PM ET for 7 of 10 items (all unchanged). Andouille sausage, onion powder and crushed red pepper did not appear in the store’s search on Nov 9, so their prices are from the Nov 8 capture and are unverified for this store today. Sweet potatoes are $2.21/lb with Prime through Nov 17; organic large avocados are 2 for $5.56 through Nov 10. Neither discount is counted in the total.</p><ul><li>Organic green bell pepper — loose, $3.49/lb × ~0.5 lb est. — $1.75 · <a href="https://www.wholefoodsmarket.com/grocery/product/fresh-produce-brands-may-vary-organic-green-bell-pepper-b000p6j14k?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>Organic sweet potatoes — loose, $2.99/lb × ~1.55 lb est. — $4.63 · <a href="https://www.wholefoodsmarket.com/grocery/product/fresh-produce-brands-may-vary-organic-potato-sweet-orange-b07fzkxqt2?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>Organic Hass avocado, large — 1 count, $2.99 each — $2.99 · <a href="https://www.wholefoodsmarket.com/grocery/product/fresh-produce-brands-may-vary-avocado-hass-large-og-b0014glse6?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>North Country Andouille pork sausage — 12 oz pack, $6.99 each × 2 — $13.98 · <a href="https://www.wholefoodsmarket.com/grocery/product/north-country-smokehouse-north-country-smokehouse-andouille-pork-sausage-12-ounce-b07h5qn4hj?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>365 90% lean ground beef (not organic) — 16 oz pack, $7.99 — $7.99 · <a href="https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-365-by-whole-foods-market-ground-beef-90-lean-10-fat-step-1-16-ounce-b0cbcx2fsm?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>Organic low-fat cottage cheese — 16 oz tub, $4.49 — $4.49 · <a href="https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-organic-low-fat-cottage-cheese-16-oz-b074h5zhhy?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>365 Fire-roasted diced tomatoes — 14.5 oz can, $1.99 — $1.99 · <a href="https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-organic-diced-fire-roasted-tomatoes-14-5-ounce-b074h577s3?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>Siete mild taco seasoning — 1.3 oz packet, $2.99 — $2.99 · <a href="https://www.wholefoodsmarket.com/grocery/product/siete-siete-mild-taco-seasoning-mix-gluten-free-vegan-paleo-preservative-free-whole-30-approved-1-packet-b0815h411y?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>365 onion powder — 2.43 oz jar, $2.99 — $2.99 · <a href="https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-365-by-whole-foods-market-onion-powder-2-43-oz-b0fzncqybq?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li><li>365 crushed red pepper — 1.31 oz jar, $2.99 — $2.99 · <a href="https://www.wholefoodsmarket.com/grocery/product/365-by-whole-foods-market-365-by-whole-foods-market-crushed-red-pepper-1-31-oz-b0fzn8w9t2?store-id=10016" rel="noopener noreferrer" target="_blank">source</a></li></ul></details></main>
+</div>
+<script>
+(function(){
+var D=document,H=D.documentElement,store=null;
+try{store=window.localStorage;var t="__t";store.setItem(t,"1");store.removeItem(t)}catch(e){store=null}
+function get(k){try{return store?store.getItem(k):null}catch(e){return null}}
+function set(k,v){try{if(store)store.setItem(k,v)}catch(e){}}
+var KP="beefbowls-v3-20261108-";
+function init(){
+ var boxes=[].slice.call(D.querySelectorAll("input[type=checkbox][data-id]"));
+ var count=D.getElementById("count"),fill=D.getElementById("fill");
+ function upd(){var n=0;boxes.forEach(function(b){if(b.checked)n++;var li=b.closest&&b.closest("li");if(li)li.classList.toggle("done",b.checked)});
+  if(count)count.textContent=n+" of "+boxes.length+" items";if(fill)fill.style.width=(boxes.length?100*n/boxes.length:0)+"%";if(tabShop)tabShop.textContent="Shop · "+n+"/"+boxes.length}
+ boxes.forEach(function(b){b.checked=get(KP+b.dataset.id)==="1";b.addEventListener("change",function(){set(KP+b.dataset.id,b.checked?"1":"0");upd()})});
+ var cards=[].slice.call(D.querySelectorAll(".recipe-head[id^=recipe-]"));
+ if(cards.length<1)throw new Error("no recipe cards");
+ var recipes=cards.map(function(c){var h=c.querySelector("h2");return {id:c.id,card:c,title:h?h.textContent:c.id,steps:[].slice.call(c.querySelectorAll("ol.steps > li")).map(function(li){
+   var act=li.querySelector(".act"),cl=li.cloneNode(true);[].forEach.call(cl.querySelectorAll(".act,.need"),function(x){x.parentNode.removeChild(x)});
+   return {act:act?act.textContent:"",html:cl.innerHTML,need:[].map.call(li.querySelectorAll(".need span"),function(x){return x.textContent})}})}});
+ recipes.forEach(function(r){if(!r.steps.length)throw new Error("no steps in "+r.id)});
+ // nav
+ var nav=D.createElement("nav");nav.className="ex-nav";nav.innerHTML='<div class="ex-seg" role="tablist"><button type="button" role="tab" data-v="shop">Shop</button><button type="button" role="tab" data-v="cook">Cook</button></div>';
+ var main=D.querySelector("main");main.parentNode.insertBefore(nav,main);
+ var tabShop=nav.querySelector('[data-v=shop]'),tabCook=nav.querySelector('[data-v=cook]');
+ // dinner selector
+ var mealLinks=[].slice.call(D.querySelectorAll("a.meal[href^='#recipe-']"));
+ recipes.forEach(function(r,i){var bar=D.createElement("div");bar.className="ex-cookbar";bar.innerHTML='<button type="button" class="ex-btn primary">Start cook mode · '+r.steps.length+' steps</button>';bar.firstChild.addEventListener("click",function(){openF(i)});r.card.insertBefore(bar,r.card.querySelector("h4"))});
+ // focus
+ var F=D.createElement("div");F.className="ex-focus";F.setAttribute("role","dialog");F.setAttribute("aria-modal","true");F.setAttribute("aria-label","Cook mode");
+ F.innerHTML='<div class="ex-top"><span class="ex-count"></span><button type="button" class="ex-btn" data-x="exit" style="flex:0 0 auto">Exit</button></div><div class="ex-bar"><i></i></div><div class="ex-body" aria-live="polite"></div><div class="ex-fnav"><button type="button" class="ex-btn" data-x="prev">‹ Back</button><button type="button" class="ex-btn primary" data-x="next">Next ›</button></div>';
+ D.body.appendChild(F);
+ var cur=0,fi=0,sel=0;
+ function q(x){return F.querySelector(x)}
+ function draw(){var r=recipes[cur],s=r.steps[fi];try{var ac=getComputedStyle(r.card).getPropertyValue("--accent");if(ac)q(".ex-bar i").style.background=ac.trim()}catch(_){}q(".ex-count").textContent=r.title+" · Step "+(fi+1)+" of "+r.steps.length;q(".ex-bar i").style.width=(100*(fi+1)/r.steps.length)+"%";
+  var b=q(".ex-body");b.innerHTML="";var a=D.createElement("p");a.className="ex-act";a.textContent=s.act;var t=D.createElement("div");t.className="ex-txt";t.innerHTML=s.html;b.appendChild(a);b.appendChild(t);
+  if(s.need.length){var n=D.createElement("div");n.className="ex-need";var h=D.createElement("h4");h.textContent="Used in this step";n.appendChild(h);s.need.forEach(function(x){var sp=D.createElement("span");sp.textContent=x;n.appendChild(sp)});b.appendChild(n)}
+  q('[data-x=prev]').disabled=fi===0;q('[data-x=next]').textContent=fi===r.steps.length-1?"Done ✓":"Next ›"}
+ function openF(i){cur=i;fi=0;F.classList.add("on");D.body.style.overflow="hidden";draw();q('[data-x=next]').focus&&q('[data-x=next]').focus()}
+ function closeF(){F.classList.remove("on");D.body.style.overflow=""}
+ q('[data-x=prev]').addEventListener("click",function(){if(fi>0){fi--;draw()}});
+ q('[data-x=next]').addEventListener("click",function(){if(fi<recipes[cur].steps.length-1){fi++;draw()}else closeF()});
+ q('[data-x=exit]').addEventListener("click",closeF);
+ D.addEventListener("keydown",function(e){if(!F.classList.contains("on"))return;if(e.key==="Escape")closeF();else if(e.key==="ArrowRight")q('[data-x=next]').click();else if(e.key==="ArrowLeft")q('[data-x=prev]').click()});
+ function pick(i){sel=i;recipes.forEach(function(r,j){r.card.classList.toggle("sel",j===i)});mealLinks.forEach(function(a){var on=H.classList.contains("v-cook")&&a.getAttribute("href")==="#"+recipes[i].id;a.classList.toggle("current",on);if(on)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")});set(KP+"_dinner",String(i))}
+ function view(v){H.classList.remove("v-shop","v-cook");H.classList.add("v-"+v);pick(sel);tabShop.setAttribute("aria-selected",String(v==="shop"));tabCook.setAttribute("aria-selected",String(v==="cook"));set(KP+"_view",v)}
+ tabShop.addEventListener("click",function(){view("shop");window.scrollTo&&window.scrollTo(0,0)});tabCook.addEventListener("click",function(){view("cook");window.scrollTo&&window.scrollTo(0,0)});
+ mealLinks.forEach(function(a){a.addEventListener("click",function(e){var id=a.getAttribute("href").slice(1);for(var j=0;j<recipes.length;j++)if(recipes[j].id===id){e.preventDefault();sel=j;view("cook");window.scrollTo&&window.scrollTo(0,0)}})});
+ var sd=parseInt(get(KP+"_dinner"),10);sel=(sd>=0&&sd<recipes.length?sd:0);view(get(KP+"_view")==="cook"?"cook":"shop");upd();
+ H.classList.add("enh");
+ window.__groceryInit={ok:true,rows:boxes.length,recipes:recipes.map(function(r){return {id:r.id,steps:r.steps.length}})};
+}
+try{init()}catch(e){
+ window.__groceryInit={ok:false,error:String(e&&e.message||e)};
+ try{H.classList.remove("enh","v-shop","v-cook");[].forEach.call(D.querySelectorAll(".ex-nav,.ex-focus,.ex-cookbar"),function(x){x.parentNode.removeChild(x)});D.body.style.overflow=""}catch(_){}
+ if(window.console&&console.error)console.error("grocery enhance failed:",e);
+}
+})();
+</script></body></html>
