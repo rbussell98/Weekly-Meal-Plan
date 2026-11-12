@@ -4,64 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>CarPing</title>
-<style>
-  :root { color-scheme: light; }
-  body { font-family: system-ui, sans-serif; margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 24px; text-align: center; background: #f6f6f6; color: #121416; }
-  a.btn { display: inline-block; margin-top: 16px; padding: 14px 22px; border-radius: 10px; background: #121416; color: #fff; text-decoration: none; font-weight: 600; }
-  .code { font-family: ui-monospace, SFMono-Regular, monospace; letter-spacing: 0.16em; font-size: 1.35rem; margin: 12px 0; }
-  p { max-width: 22rem; line-height: 1.45; color: #555; }
-</style>
+<title>Weekly Grocery Meal</title>
+<meta http-equiv="refresh" content="0; url=/meals/2026-11-08/">
+<link rel="canonical" href="/meals/2026-11-08/">
 </head>
 <body>
 <main>
-  <h1>CarPing</h1>
-  <p id="msg">Opening the ping page in your browser…</p>
-  <p class="code" id="code"></p>
-  <a class="btn" id="go" href="#">Open ping</a>
+  <h1>Weekly Grocery Meal</h1>
+  <p><a href="/meals/2026-11-08/">Open this week’s shop &amp; cook list (Nov 8–14, 2026)</a></p>
 </main>
 <script>
-(function () {
-  function hostOf(raw) {
-    if (!raw) return null;
-    try {
-      var u = new URL(raw.indexOf('://') >= 0 ? raw : 'https://' + raw);
-      var h = u.hostname.toLowerCase();
-      if (!h) return null;
-      if (h === 'grok.com' || h.endsWith('.grok.com')) return null;
-      if (h === 'x.com' || h.endsWith('.x.com') || h === 'x.ai') return null;
-      if (h === 'localhost' || h === '127.0.0.1') return null;
-      if (h === 'grok.me' || h === 'www.grok.me') return null;
-      return h;
-    } catch (e) { return null; }
-  }
-  function params() {
-    var search = new URLSearchParams(location.search);
-    var hash = new URLSearchParams(String(location.hash || '').replace(/^#/, ''));
-    return function (k) { return search.get(k) || hash.get(k); };
-  }
-  var get = params();
-  var c = (get('c') || get('code') || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
-  var path = location.pathname.match(/\/v\/([A-Z0-9]+)/i);
-  if (path) c = path[1].toUpperCase();
-  var d = hostOf(get('d') || get('to') || '');
-  document.getElementById('code').textContent = c || '';
-  if (c.length < 6 || c.length > 8) {
-    document.getElementById('msg').textContent = 'This sticker is missing a code.';
-    document.getElementById('go').style.display = 'none';
-    return;
-  }
-  if (!d) {
-    document.getElementById('msg').textContent = 'Open CarPing and type this code.';
-    document.getElementById('go').style.display = 'none';
-    return;
-  }
-  var dest = 'https://' + d + '/v/' + encodeURIComponent(c) + '?mwbv=true';
-  var a = document.getElementById('go');
-  a.href = dest;
-  a.rel = 'noopener noreferrer';
-  location.replace(dest);
-})();
+  location.replace('/meals/2026-11-08/' + location.search + location.hash);
 </script>
 </body>
 </html>
