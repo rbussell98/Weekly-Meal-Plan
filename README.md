@@ -1,5 +1,5 @@
-# Weekly Grocery Meal
+# Weekly Meal Plan
 
-Weekly shop & cook grocery lists on GitHub Pages.
+Weekly shop & cook grocery list.
 
-Current week: https://rbussell98.github.io/meals/2026-11-08/
+Live site: https://rbussell98.github.io/Weekly-Meal-Plan/
