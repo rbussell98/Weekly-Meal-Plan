@@ -2,4 +2,4 @@
 
 Weekly shop & cook grocery list.
 
-Live site: https://rbussell98.github.io/meals/
+Live site: https://rbussell98.github.io/Weekly-Meals/
